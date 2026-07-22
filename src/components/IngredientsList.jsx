@@ -1,7 +1,7 @@
 export default function IngredientsList(props) {
-  const ingredientsListItems = props.ingredients.map((item) => (
+  const ingredientsListItems = props.ingredients.map((item, index) => (
     <li key={item.id}>
-      {item.name}
+      {index + 1}. {item.name}
       <button
         onClick={() => props.deleteIngredient(item.id)}
         className="del-btn"
