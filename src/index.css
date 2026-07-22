@@ -8,6 +8,9 @@ body {
   background-color: #fafaf8;
 }
 
+/* ==========================================
+   HEADER
+   ========================================== */
 header {
   display: flex;
   justify-content: center;
@@ -18,25 +21,35 @@ header {
   box-shadow:
     0px 1px 3px 0px rgba(0, 0, 0, 0.1),
     0px 1px 2px 0px rgba(0, 0, 0, 0.06);
+  padding: 0 16px;
 }
 
 header > img {
-  width: 50px;
+  width: 40px;
+  height: auto;
 }
 
 header > h1 {
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 1.5rem;
+  margin: 0;
 }
 
+/* ==========================================
+   MAIN LAYOUT & FORM
+   ========================================== */
 main {
-  padding: 30px 30px 10px;
+  padding: 24px 16px;
+  max-width: 800px; /* Batas lebar agar rapi di desktop */
+  margin: 0 auto; /* Posisikan main di tengah layar desktop */
 }
 
 .add-ingredient-form {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   gap: 12px;
-  height: 38px;
+  width: 100%;
 }
 
 .add-ingredient-form > input {
@@ -45,8 +58,8 @@ main {
   padding: 9px 13px;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   flex-grow: 1;
-  min-width: 150px;
-  max-width: 400px;
+  min-width: 0; /* Mencegah input overflow di mobile */
+  font-size: 0.95rem;
 }
 
 .add-ingredient-form > button {
@@ -55,9 +68,12 @@ main {
   border: none;
   background-color: #141413;
   color: #fafaf8;
-  width: 150px;
+  padding: 9px 16px;
   font-size: 0.875rem;
   font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap; /* Teks button tidak terlipat menjadi 2 baris */
+  flex-shrink: 0;
 }
 
 .add-ingredient-form > button::before {
@@ -65,37 +81,79 @@ main {
   margin-right: 5px;
 }
 
+/* ==========================================
+   INGREDIENTS LIST
+   ========================================== */
 ul.ingredients-list {
-  margin-bottom: 48px;
+  margin: 24px 0 40px 0;
+  padding-left: 0; /* Hilangkan indent bawaan <ul> */
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
+/* DIUBAH: Dari width: 15% (kekecilan) menjadi fleksibel */
 ul.ingredients-list > li {
   color: #475467;
-  line-height: 28px;
-  width: 15%;
+  line-height: 24px;
+  width: 100%;
+  max-width: 400px; /* Batasi lebar daftar bahan */
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
 }
 
+.del-btn {
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #ef4444; /* Warna merah untuk icon hapus */
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s;
+}
+
+.del-btn:hover {
+  background-color: #fee2e2;
+}
+
+.material-symbols-outlined {
+  font-size: 18px;
+}
+
+/* ==========================================
+   GET RECIPE CARD
+   ========================================== */
 .get-recipe-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   border-radius: 8px;
   background: #f0efeb;
-  padding: 10px 28px;
+  padding: 20px 24px;
 }
 
 .get-recipe-container h3 {
   font-size: 1.125rem;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 24px;
+  margin: 0 0 4px 0;
 }
 
 .get-recipe-container p {
   color: #6b7280;
   font-size: 0.875rem;
   line-height: 20px;
+  margin: 0;
 }
 
 .get-recipe-container button {
@@ -104,17 +162,24 @@ ul.ingredients-list > li {
   background: #d17557;
   box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.05);
   color: #fafaf8;
-  padding: 9px 17px;
+  padding: 10px 20px;
   font-family: Inter, sans-serif;
   font-size: 0.875rem;
+  font-weight: 500;
   cursor: pointer;
+  white-space: nowrap;
+  flex-shrink: 0;
 }
 
+/* ==========================================
+   SUGGESTED RECIPE (MARKDOWN OUTPUT)
+   ========================================== */
 .suggested-recipe-container {
-  color: #475467;
-  line-height: 28px;
-  font-size: 1.125rem;
+  color: #374151;
+  line-height: 1.7;
+  font-size: 1rem;
   font-weight: 400;
+  margin-top: 32px;
 }
 
 .suggested-recipe-container ul li,
@@ -122,50 +187,30 @@ ul.ingredients-list > li {
   margin-bottom: 8px;
 }
 
-.material-symbols-outlined {
-  font-size: 12px;
-}
-
-.del-btn {
-  border: none;
-  background-color: inherit;
-}
-
-.del-btn:hover {
-  background-color: gray;
-  border: 1px solid #141413;
-}
-
-/* Container pembungkus utama yang memenuhi seluruh layar */
+/* ==========================================
+   LOADING OVERLAY
+   ========================================== */
 .loading-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-
-  /* Background semi-transparan transparan agar konten di belakangnya sedikit samar */
-  background-color: rgba(255, 255, 255, 0.7);
-
-  /* Memastikan loading berada di lapisan paling atas */
+  background-color: rgba(255, 255, 255, 0.75);
   z-index: 9999;
-
-  /* Posisi persis di tengah secara vertikal & horizontal */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 16px;
-
-  /* Efek blur halus di latar belakang (opsional, bikin makin estetik) */
-  backdrop-filter: blur(2px);
+  backdrop-filter: blur(3px);
 }
 
 .spinner {
   width: 48px;
   height: 48px;
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top-color: #3b82f6; /* Warna accent biru */
+  border-top-color: #3b82f6;
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
 }
@@ -178,10 +223,56 @@ ul.ingredients-list > li {
   font-size: 15px;
   font-weight: 500;
   color: #334155;
+  text-align: center;
+  padding: 0 16px;
 }
 
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* ==========================================
+   MEDIA QUERIES (KHUSUS TAMPILAN HP / MOBILE)
+   ========================================== */
+@media (max-width: 600px) {
+  header > h1 {
+    font-size: 1.25rem;
+  }
+
+  main {
+    padding: 16px;
+  }
+
+  /* Form input & button ditata bertumpuk jika layar sangat sempit */
+  .add-ingredient-form {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .add-ingredient-form > input {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .add-ingredient-form > button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  /* Banner pemicu resep diubah menjadi vertikal di HP */
+  .get-recipe-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .get-recipe-container button {
+    width: 100%;
+    margin-top: 8px;
+  }
+
+  ul.ingredients-list > li {
+    max-width: 100%;
   }
 }
