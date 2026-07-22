@@ -56,7 +56,8 @@ export default function Main() {
           <h2>Bingung Mau Masak Apa Hari Ini? 🍳</h2>
           <p>
             Masukkan bahan-bahan yang ada di kulkasmu, lalu biarkan AI
-            membuatkan resep lezat khusus untukmu! Masukkan minimal 3 bahan yaa
+            membuatkan resep lezat khusus untukmu! Masukkan minimal 3 bahan yaa,
+            tambahkan bahan nya satu persatu sesuai contoh yang tertera
           </p>
         </section>
       )}
