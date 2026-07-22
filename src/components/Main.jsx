@@ -2,7 +2,7 @@ import { useState, useRef, useEffect } from "react";
 import IngredientsList from "./IngredientsList";
 import Recipe from "./Recipe";
 import LoadingSpinner from "./LoadingSpinner";
-import { getRecipeFromBackend } from "../api";
+import { getRecipeFromGoogle } from "../api";
 
 export default function Main() {
   const [ingredients, setIngredients] = useState([]);
@@ -20,7 +20,7 @@ export default function Main() {
     try {
       setLoading(true);
 
-      const recipeMarkdown = await getRecipeFromBackend(
+      const recipeMarkdown = await getRecipeFromGoogle(
         ingredients.map((item) => item.name),
       );
 
