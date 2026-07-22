@@ -51,6 +51,15 @@ export default function Main() {
 
   return (
     <main>
+      {!recipe && (
+        <section className="welcome-card">
+          <h2>Bingung Mau Masak Apa Hari Ini? 🍳</h2>
+          <p>
+            Masukkan bahan-bahan yang ada di kulkasmu, lalu biarkan AI
+            membuatkan resep lezat khusus untukmu! Masukkan minimal 3 bahan yaa
+          </p>
+        </section>
+      )}
       <form action={addIngredient} className="add-ingredient-form">
         <input
           type="text"
