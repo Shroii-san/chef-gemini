@@ -56,10 +56,10 @@ export default function Main() {
           <h2>Bingung Mau Masak Apa Hari Ini? 🍳</h2>
           <p>
             Masukkan bahan-bahan yang ada di kulkasmu, lalu biarkan AI
-            membuatkan resep lezat khusus untukmu! Tambahkan bahan nya satu
-            persatu sesuai contoh yang tertera. Ketik 1 bahan lalu tambahkan
-            bahan tersebut dengan tombol yang tertera. Masukkan minimal 3 bahan
-            agar resep nya maksimal!
+            membuatkan resep lezat khusus untukmu! Tambahkan bahan satu persatu
+            sesuai contoh yang tertera. Ketik 1 bahan lalu tambahkan bahan
+            tersebut dengan tombol yang tertera. Masukkan minimal 3 bahan agar
+            resep nya maksimal!
           </p>
         </section>
       )}
@@ -67,7 +67,7 @@ export default function Main() {
         <input
           type="text"
           aria-label="Tambahkan Bahan"
-          placeholder="contoh: Telur"
+          placeholder="ketik bahan yang kamu miliki di sini... (contoh: telur)"
           className="add-ingredient-input"
           name="ingredient"
           required
