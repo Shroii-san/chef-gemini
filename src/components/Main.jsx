@@ -67,7 +67,7 @@ export default function Main() {
         <input
           type="text"
           aria-label="Tambahkan Bahan"
-          placeholder="ketik bahan yang kamu miliki di sini... (contoh: telur)"
+          placeholder="Masukkan bahan yang dimiliki... (contoh: telur)"
           className="add-ingredient-input"
           name="ingredient"
           required

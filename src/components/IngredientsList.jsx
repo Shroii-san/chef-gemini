@@ -17,15 +17,24 @@ export default function IngredientsList(props) {
       <ul className="ingredients-list" aria-live="polite">
         {ingredientsListItems}
       </ul>
-      {ingredientsListItems.length > 2 ? (
-        <div className="get-recipe-container">
-          <div>
-            <h3>Siap untuk resep?</h3>
-            <p>Buatlah resep berdasarkan daftar bahan Anda.</p>
-          </div>
-          <button onClick={props.getRecipe}>Dapatkan Resep</button>
+
+      {/* Selalu tampilkan container jika sudah ada bahan */}
+      <div className="get-recipe-container">
+        <div>
+          <h3>Siap untuk resep?</h3>
+          <p>
+            {ingredientsListItems.length >= 3
+              ? "Buatlah resep berdasarkan daftar bahan Anda."
+              : `Tambahkan minimal ${3 - ingredientsListItems.length} bahan lagi untuk membuka resep.`}
+          </p>
         </div>
-      ) : null}
+        <button
+          onClick={props.getRecipe}
+          disabled={ingredientsListItems.length < 3}
+        >
+          Dapatkan Resep
+        </button>
+      </div>
     </section>
   );
 }

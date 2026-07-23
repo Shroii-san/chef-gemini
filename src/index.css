@@ -276,3 +276,22 @@ ul.ingredients-list > li {
     max-width: 100%;
   }
 }
+
+/* Style khusus saat tombol dalam kondisi disabled (bahan kurang dari 3) */
+.get-recipe-container button:disabled,
+.get-recipe-container button.disabled-btn {
+  background-color: #9ca3af; /* Warna abu-abu pudar */
+  color: #f3f4f6;
+  cursor: not-allowed; /* Mengubah kursor jadi simbol lingkaran/larangan */
+  box-shadow: none;
+  transform: none !important; /* Matikan efek klik/press saat disabled */
+  opacity: 0.7;
+}
+
+/* Animasi transisi halus saat tombol berubah dari disabled ke aktif */
+.get-recipe-container button {
+  transition:
+    background-color 0.3s ease,
+    transform 0.1s ease,
+    opacity 0.3s ease;
+}
