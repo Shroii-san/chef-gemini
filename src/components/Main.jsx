@@ -72,15 +72,11 @@ export default function Main() {
         />
         <button className="add-ingredient-button">Tambah Bahan</button>
       </form>
-
-      {ingredients.length > 0 && (
-        <IngredientsList
-          ingredients={ingredients}
-          getRecipe={getRecipe}
-          deleteIngredient={deleteIngredient}
-        />
-      )}
-
+      <IngredientsList
+        ingredients={ingredients}
+        getRecipe={getRecipe}
+        deleteIngredient={deleteIngredient}
+      />
       {loading ? (
         <LoadingSpinner message="Sedang mengambil resep dari AI..." />
       ) : (

@@ -23,9 +23,9 @@ export default function IngredientsList(props) {
         <div>
           <h3>Siap untuk resep?</h3>
           <p>
-            {ingredientsListItems.length >= 3
-              ? "Buatlah resep berdasarkan daftar bahan Anda."
-              : `Tambahkan minimal ${3 - ingredientsListItems.length} bahan lagi untuk membuka resep.`}
+            {ingredientsListItems.length < 3
+              ? `Tambahkan minimal ${3 - ingredientsListItems.length} bahan lagi untuk membuka resep.`
+              : "Buatlah resep berdasarkan daftar bahan Anda."}
           </p>
         </div>
         <button
